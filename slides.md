@@ -21,6 +21,7 @@ drawings:
   persist: false
 # page transition
 transition: none
+download: true
 # use UnoCSS
 css: unocss
 ---
