@@ -1,0 +1,29 @@
+.slidev-layout {
+    @apply px-14 py-10 text-[1.1rem];
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    div {
+        @apply select-none;
+    }
+
+    h3 {
+        color: gray;
+        font-size: medium;
+        font-weight: 450;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+    }
+
+    pre,
+    code {
+        @apply select-text;
+    }
+
+    a {
+        color: theme('colors.primary');
+    }
+}
