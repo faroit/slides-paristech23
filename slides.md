@@ -486,7 +486,7 @@ Donahue, Caillon, Roberts et. al|
 
 ---
 layout: image-right
-image: /aicrowd.png
+image: aicrowd.png
 ---
 
 # Research at Audioshake
