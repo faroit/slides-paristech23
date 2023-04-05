@@ -38,64 +38,242 @@ fonts:
 
 ---
 
-# Is it solved, yet?
+# About me
+
+<img width="1409" src="https://docs.google.com/drawings/d/e/2PACX-1vSi04HMQGxMM-WjT1Ho_2hq4hi-DeqFhXxZ9gfg_9xS752VwzlIhwxVWealZsPwrC4dvv044YtBe2_D/pub?w=1409&h=590">
+
+---
+layout: image
+image: '/stones_all.jpg'
+---
+
+# What is music separation
+
+<style>
+h1 {
+  font-size: 2.5em !important;
+  margin-top: 0em;
+  margin-left: 0em;
+}
+</style>
+
+---
+layout: image
+image: stones_noguitar.jpg
+---
+
+# What is music separation
+
+
+---
+layout: image
+image: stones_noguitar_novocals.jpg
+---
+
+---
+layout: image
+image: demotrack/mix.jpg
+---
+
+<audio controls src="/demotrack/mixture.m4a"></audio>
+
+---
+layout: image
+image: demotrack/vocals.jpg
+---
+
+# Vocals
+
+<audio controls src="/demotrack/vocals.m4a"></audio>
+
+---
+layout: image
+image: demotrack/drums.jpg
+---
+
+# Drums
+
+<audio controls src="/demotrack/drums.m4a"></audio>
+
+---
+layout: image
+image: demotrack/bass.jpg
+transition: slide-up
+---
+
+# Bass
+
+<audio controls src="/demotrack/bass.m4a"></audio>
+
+---
+transition: slide-down
+---
 
 <center>
   <img width="300" src="/IMG_4123.jpg">
 </center>
 
----
-# Research 
-
-- Large-Language Models (LLM) can't solve music separation (not yet)
-
----
-
-# Introduction to Music Separation 1
-
-<SlideCurrentNo style="position: absolute; top:1em; right: 2em" />
+<audio controls style="position: absolute; top: 0; right: 0">
+  <source src="/billie.mp3" type="audio/mpeg">
+</audio>
 
 ---
+layout: two-cols
+---
 
-# Introduction to Music Separation 2
+# Research topics related to music separation
+
+<div style="margin-top:4em">
+
+### Machine learning for audio
+
+- Inverse problem: __audio separation__
+- Source __count estimation__
+- Audio __enhancement__
+- Perceptual __losses__ and __evaluation__
+
+</div>
+
+::right::
+
+<p v-click style="margin-top:10em; margin-left: 4em; color: #999999">
+  
+- $\mathbf{x} = \sum_{j=1}^{k}\mathbf{s}_j$, obtaining $\mathbf{s}_j$ from $\mathbf{x}$
+- obtaining $k$ from $\mathbf{x}$
+- transfer $\mathbf{x}$ → $\mathbf{y}$
+- 👂$(\mathbf{y}, \mathbf{\hat{y}})$
+
+</p>
 
 ---
 
-# Introduction to Music Separation 3
+# Challenges for music processing
+
+- Music has __high variance__
+- Music has __long-term dependencies__ and have __variable length__
+- Evaluation __metrics (perceptual)__ hardly differentiable
+- Very __little available data__ (copyright)
+
+<center>
+  <img width="650" src="/richter.gif" alt="">
+</center>
+
+<h6 style="margin-top:4%;color:gray">
+  Image used courtesy of Jan Van Balen.
+</h6>
 
 ---
 
-# Introduction to Music Separation 4
+# Music separation as a ml-problem
+
+## Generative or discriminative
+
+<img width="800" src="/generative-discriminative.svg" alt="" style="margin-top:2em">
 
 ---
 
-# History of models
+# Basic Separation Architectures
+
+<center>
+  <img width="700" src="/encoder_decoder.png" alt="">
+</center>
+
+- Encoder here: representation
 
 ---
 
-# Music Separation is a good test balloon for AI
+# Basic model: Separating auto-encoder
 
-- it is a hard problem
-- it is a well-defined problem
-- it is a problem that is not solved yet
-- you can use all architectures
-- timeline of separation systems
-- today: LLMs tokenize audio
+- __Encoder:__ dense layers the input into a latent vector
+- __Decoder:__ dense layers reconstruct the input from the latent vector
+- __Complex structures__ can be learned with deeper layers
+- Trained to minimize the __reconstruction error__ between input and output
+
+<center>
+  <img width="600" src="/autoencoder.png" alt="">
+</center>
+
+---
+
+# History of the models
+
+<center>
+  <img width="800" src="/paperswithcode.png" alt="">
+</center>
+
+<h6 style="margin-top:4%;color:gray">5/4/2023 paperswithcode</h6>
+
+---
+
+# Training Dataset: MUSDB18
+
+- 100 train / 50 test full tracks
+- Mastered with pro. digital audio workstations
+- compressed STEMS (`MUSDB18`) and uncompressed WAV `MUSDB18-HQ`
+- Parser and Evaluation tools in Python
+- Free download on zenodo
+
+<center>
+  <img width="500" src="/hero.svg" alt="">
+</center>
 
 ---
 
 # Evaluation
 
-- what does it mean to evaluate a music separation system?
-- what are the metrics?
-- when is it solved?
+
+- **SDR** (signal-to-distortion ratio) or **log-MSE** is the most common evaluation metric
+$$\text{SDR} := 10 \log_{10} \left( \frac{\| s_{\text{target}} \|^2}{ \| e_{\text{interf}} + e_{\text{noise}} + e_{\text{artif}} \|^2} \right)$$
+
+- Evaluation, typically between target and references
+- Perceptual metrics exist but are rarely used
+- When is it solved?
+
+> “A system that achieves human auditory analysis performance in all listening situation” (Wang)
+
+<h6 style="margin-top:4%;color:gray">
+  Emmanuel Vincent, Rémi Gribonval, and Cédric Févotte. Performance measurement in blind audio source separation. IEEE transactions on audio, speech, and language processing, 14(4):1462–1469, 2006
+</h6>
 
 ---
 
-# Example: "Clean-Source-Separation"
+# Baseline: _Open-unmix_ (UMX) 
 
-- mixture is a clean source, hence no separation is required
-- plot visqol and pesq scores
+<img style="margin-top:2%;" width="800" src="/UMX1.svg" alt="">
+
+---
+
+# Baseline: _Open-unmix_ (UMX) model
+
+<img style="margin-top:2%;" width="800" src="/UMX2.svg" alt="">
+
+- MIT-licensed Pytorch implementation
+- SOTA in 2019: 6.3 dB SDR!
+
+<h6 style="margin-top:4%;color:gray">
+  F. Stöter et al, "Open-Unmix - A reference implementation for audio source separation", JOSS 2019.
+</h6>
+
+---
+layout: iframe
+url: https://www.youtube-nocookie.com/embed/9qSkOC7ghgI
+---
+
+# Demo: Open-Unmix
+
+---
+
+# <https://open.unmix.app> - edge implementation
+
+<iframe src="https://sigsep.github.io/open-unmix-js/" width="100%" height="680" frameborder="0"></iframe>
+
+---
+
+# Clean-Source-Separation
+
+<center>
+  <img width="800" src="/cleantargetsep.png" alt="">
+</center>
 
 ---
 
@@ -147,8 +325,6 @@ fonts:
 
 - So if active listening is the most important application, what does it mean to be good enough?
 
-> “A system that achieves human auditory analysis performance in all listening situation” (Wang)
-
 - But for many other applications we might not need to be that good
 
 ---
@@ -184,205 +360,21 @@ fonts:
 
 # Music Demixing Challenge 2021
 
+- Signal Separation Evaluation Campaign (SiSEC) 
+  - Began in 2007, separating speech and music signals
+  - MusDB18 released in 2017 provided an open training dataset for deep learning-based music source separation
+  - Four output signals: Vocals, Bass, Drums, Other
+
+- 2021 Music Demixing (MDX) Challenge
+  - Direct Predecessor to SDX 2023
+  - Evaluation dataset is hidden from participants
+
 ---
 
 # Music Demixing Challenge 2023
 
 ---
 
-# CV
-
-<img width="1409" src="https://docs.google.com/drawings/d/e/2PACX-1vSi04HMQGxMM-WjT1Ho_2hq4hi-DeqFhXxZ9gfg_9xS752VwzlIhwxVWealZsPwrC4dvv044YtBe2_D/pub?w=1409&h=590">
-
----
-layout: two-cols
----
-
-# Research Interests
-
-<div style="margin-top:2em">
-
-### Machine learning for audio
-
-- Inverse problem: __audio separation__
-- Source __count estimation__
-- Audio __enhancement__
-- Perceptual __losses__ and __evaluation__
-
-</div>
-
-::right::
-
-<p v-click style="margin-top:6em; margin-left: 2em; color: #999999">
-  
-- $\mathbf{x} = \sum_{j=1}^{k}\mathbf{s}_j$, obtaining $\mathbf{s}_j$ from $\mathbf{x}$
-- obtaining $k$ from $\mathbf{x}$
-- transfer $\mathbf{x}$ → $\mathbf{y}$
-- 👂$(\mathbf{y}, \mathbf{\hat{y}})$
-
-</p>
-
----
-
-# Challenges for music processing using DL
-
-- Music has __high variance__
-- Music has __long-term dependencies__ and have __variable length__
-- Evaluation __metrics (perceptual)__ hardly differentiable
-- Very __little available data__ (copyright)
-
-<center>
-  <img width="650" src="/richter.gif" alt="">
-</center>
-
-<div class="caption">Image used courtesy of Jan Van Balen.</div>
-
----
-layout: image
-image: '/devons_soft.jpg'
----
-
-# Music Separation
-
-<style>
-h1 {
-  font-size: 2.5em !important;
-  margin-top: 0em;
-  margin-left: 0em;
-}
-</style>
-
----
-layout: image
-image: stones_noguitar.jpg
----
-
----
-layout: image
-image: stones_noguitar_novocals.jpg
----
-
-
----
-
-# Music separation as a machine learning problem
-
-## Generative or discriminative
-
-<img width="800" src="/generative-discriminative.svg" alt="" style="margin-top:2em">
-
----
-layout: image
-image: demotrack/mix.jpg
----
-
-<audio controls src="/demotrack/mixture.m4a"></audio>
-
----
-layout: image
-image: demotrack/vocals.jpg
----
-
-# Vocals
-
-<audio controls src="/demotrack/vocals.m4a"></audio>
-
----
-layout: image
-image: demotrack/drums.jpg
----
-
-# Drums
-
-<audio controls src="/demotrack/drums.m4a"></audio>
-
----
-layout: image
-image: demotrack/bass.jpg
----
-
-# Bass
-
-<audio controls src="/demotrack/bass.m4a"></audio>
-
----
-
-# Basic Separation Architectures
-
-<center>
-  <img width="700" src="/encoder_decoder.png" alt="">
-</center>
-
-- Encoder here: representation
-
----
-
-# Basic model: Separating auto-encoder
-
-- __Encoder:__ dense layers the input into a latent vector
-- __Decoder:__ dense layers reconstruct the input from the latent vector
-- __Complex structures__ can be learned with deeper layers
-- Trained to minimize the __reconstruction error__ between input and output
-
-<center>
-  <img width="600" src="/autoencoder.png" alt="">
-</center>
-
----
-
-# History of the models
-
-<center>
-  <img width="800" src="/paperswithcode.png" alt="">
-</center>
-
-<pre><a href="https://paperswithcode.com/sota/music-source-separation-on-musdb18">5/4/2023 paperswithcode</a></pre>
-
----
-
-# Training Dataset: MUSDB18
-
-- 100 train / 50 test full tracks
-- Mastered with pro. digital audio workstations
-- compressed STEMS (`MUSDB18`) and uncompressed WAV `MUSDB18-HQ`
-- Parser and Evaluation tools in Python
-- Free download on zenodo
-
-<center>
-  <img width="500" src="/hero.svg" alt="">
-</center>
-
----
-
-# _Open-unmix_ (UMX) model
-
-<img style="margin-top:2%;" width="800" src="/UMX1.svg" alt="">
-
----
-
-# _Open-unmix_ (UMX) model
-
-<img style="margin-top:2%;" width="800" src="/UMX2.svg" alt="">
-
-- MIT-licensed Pytorch implementation
-- SOTA in 2019: 6.3 dB SDR!
-
-<h6 style="margin-top:4%;color:gray">
-  F. Stöter et al, "Open-Unmix - A reference implementation for audio source separation", JOSS 2019.
-</h6>
-
----
-layout: iframe
-url: https://www.youtube-nocookie.com/embed/9qSkOC7ghgI
----
-
-# Demo: Open-Unmix
-
----
-
-# <https://open.unmix.app> - edge implementation
-
-<iframe src="https://sigsep.github.io/open-unmix-js/" width="100%" height="680" frameborder="0"></iframe>
 
 ---
 
@@ -473,6 +465,13 @@ image: /aicrowd.png
 - We are hiring!
 
 ---
+layout: iframe
+url: https://www.youtube-nocookie.com/embed/O19u51JSoQI
+---
+
+
+
+---
 layout: code-right
 ---
 
@@ -511,6 +510,7 @@ layout: code-right
 - leaverage long-term relations
 - single model vs joint models
 - large language models
+- New momentum for learnable perceptual metrics
 
 ---
 
@@ -598,3 +598,4 @@ Donahue, Caillon, Roberts et. al
 # Conclusion
 
 - Music separation is solved for some and some applications
+
