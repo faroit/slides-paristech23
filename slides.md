@@ -35,9 +35,10 @@ fonts:
 # Music Separation: is it solved, yet?
 
 ## Fabian-Robert Stöter, Audioshake
+
 ---
 
-# Music Separation: is it solved, yet?
+# Is it solved, yet?
 
 <center>
   <img width="300" src="/IMG_4123.jpg">
@@ -97,8 +98,35 @@ fonts:
 - plot visqol and pesq scores
 
 ---
+layout: two-cols
+---
 
-# Commercial Applications for Stems
+---
+
+# When is a system solved?
+
+- Does scientific research align with real-world applications?
+- Do datasets and metrics match current use cases? 
+- Are there songs for which no system estimates a good separation?
+
+---
+
+# Presumed Applications
+
+- Active listening
+- Music Education
+- Remixing
+- Pre-processing for
+  - automatic music transcription
+  - lyric and music alignment
+  - musical instrument detection
+  - lyric recognition
+  - vocal activity detection
+  - fundamental frequency estimation
+
+---
+
+# Actual Commercial applications for Stems
 
 - Social Media
 - AR/VR
@@ -108,6 +136,24 @@ fonts:
 - Gaming
 - Vocal synthesis
 - Generative AI
+
+---
+
+# How good would separation need to be  ?
+
+<center>
+  <img width="800" src="/applications.png" alt="">
+</center>  
+
+---
+
+# Applications
+
+- So if active listening is the most important application, what does it mean to be good enough?
+
+> “A system that achieves human auditory analysis performance in all listening situation” (Wang)
+
+- But for many other applications we might not need to be that good
 
 ---
 
@@ -218,33 +264,6 @@ layout: image
 image: stones_noguitar_novocals.jpg
 ---
 
----
-layout: two-cols
----
-
-# Applications
-
-- Automatic Karaoke
-- Creative Music Production
-- Active listening
-- Upmixing (stereo $\Rightarrow$ 5.1)
-- Music Education
-
-<v-click>
-
-- Pre-processing for
-  - automatic music transcription
-  - lyric and music alignment
-  - musical instrument detection
-  - lyric recognition
-  - vocal activity detection
-  - fundamental frequency estimation
-
-</v-click>
-
-::right::
-
-<img width="400" src="/karaoke.jpg" alt="">
 
 ---
 
@@ -497,22 +516,45 @@ layout: code-right
 
 # Sing Song
 
-<video width="100%" controls>
-  <source src="singsong.mp4" type="video/mp4">
+<video controls>
+  <source src="/singsong.mp4" type="video/mp4">
 </video>
 
-Donahue, Caillon, Roberts et. al.
+Donahue, Caillon, Roberts et. al
 
 ---
 
 # Movie separation
 
-<video width="100%" controls>
+<video controls>
   <source src="/spiderman.mp4" type="video/mp4">
 </video>
 
 Cocktail Fork Problem
 Jonathan le Roux, et al.
+
+---
+layout: two-cols
+---
+
+# Music vs SFX
+
+> - A movie soundtrack typically is a collection of music pieces composed specifically for the film. Its used to complement and enhance the emotional impact of the scenes, create atmosphere and tone, and convey the film's themes and messages.
+
+#
+
+> - Sound effects, are the sounds that are added to a film to create a realistic and immersive environment. Examples of sound effects include the sound of footsteps, a creaking door, or the sound of a car engine.
+
+::right::
+
+<div style="margin-left: 2em; margin-top: 4em">
+Music: <audio controls src="/dune.wav"></audio>
+Effects: <audio controls src="/drones.wav"></audio>
+</div>
+
+<div class="box" style="position: absolute; bottom: 0px; left: 20%">  
+  Is this solved yet? NO!
+</div>
 
 ---
 
@@ -543,4 +585,13 @@ table {
 | 18.01 | [Msanii: High Fidelity Music Synthesis on a Shoestring Budget](https://kinyugo.github.io/msanii-demo/)                                                                                         | [arXiv](https://arxiv.org/abs/2301.06468)        | [GitHub](https://github.com/Kinyugo/msanii)                                      | [Hugging Face](https://huggingface.co/spaces/kinyugo/msanii) [Colab](https://colab.research.google.com/github/Kinyugo/msanii/blob/main/notebooks/msanii_demo.ipynb) |
 | 16.01 | [ArchiSound: Audio Generation with Diffusion](https://flavioschneider.notion.site/Audio-Generation-with-Diffusion-c4f29f39048d4f03a23da13078a44cdb)                                            | [arXiv](https://arxiv.org/abs/2301.13267)        | [GitHub](https://github.com/archinetai/audio-diffusion-pytorch)                  | -                                                                                                                                                                   |
 | 05.01 | [VALL-E: Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers](https://valle-demo.github.io/)                                                                                | [arXiv](https://arxiv.org/abs/2301.02111)        | -                                                                                | -                                                                                                                                                                   |
+---
 
+# Conclusion
+
+- Music separation is solved for some and some applications
+---
+
+- Soundstream
+- AudioLM
+- SingSong
