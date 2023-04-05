@@ -164,14 +164,6 @@ layout: two-cols
 
 ---
 
-# Music separation as a ml-problem
-
-## Generative or discriminative
-
-<img width="800" src="/generative-discriminative.svg" alt="" style="margin-top:2em">
-
----
-
 # Basic Separation Architectures
 
 <center>
@@ -195,15 +187,6 @@ layout: two-cols
 
 ---
 
-# History of the models
-
-<center>
-  <img width="800" src="/paperswithcode.png" alt="">
-</center>
-
-<h6 style="margin-top:4%;color:gray">5/4/2023 paperswithcode</h6>
-
----
 
 # Training Dataset: MUSDB18
 
@@ -267,131 +250,6 @@ url: https://www.youtube-nocookie.com/embed/9qSkOC7ghgI
 
 <iframe src="https://sigsep.github.io/open-unmix-js/" width="100%" height="680" frameborder="0"></iframe>
 
-
----
-
-# When is a system solved?
-
-- Does scientific research align with real-world applications?
-- Do datasets and metrics match current use cases? 
-- Are there songs for which no system estimates a good separation?
-
----
-
-# Presumed Applications
-
-- Active listening
-- Music Education
-- Remixing
-- Pre-processing for
-  - automatic music transcription
-  - lyric and music alignment
-  - musical instrument detection
-  - lyric recognition
-  - vocal activity detection
-  - fundamental frequency estimation
-
----
-
-# Actual Commercial applications for Stems
-
-- Social Media
-- AR/VR
-- Education
-- Preprocessing for transcription and alignment
-- Karaoke
-- Gaming
-- Vocal synthesis
-- Generative AI
-
----
-
-# How good would separation need to be  ?
-
-<center>
-  <img width="800" src="/applications.png" alt="">
-</center>  
-
----
-
-# Applications
-
-- So if active listening is the most important application, what does it mean to be good enough?
-
-- But for many other applications we might not need to be that good
-
----
-
-# Arguments why it is solved
-
-- sounds as good ground truth in some cases
-- metrics are saturating
-
----
-
-# Arguments why its not solved
-
-- Perceptible, but not annoying (ODG -1)
-
----
-
-# Clean-Source-Separation
-
-<center>
-  <img width="800" src="/cleantargetsep.png" alt="">
-</center>
-
----
-
-# Remaining Problems
-
-- what happens with generative models?
-- do we still need source separation
-- turns out yes
-
----
-
-# Stem separation != Source Separation
-
-- Stem separation is a special case of source separation
-- For many applications stems are sufficient but they are already mastered
-- video one more time
-
----
-
-# Music Demixing Challenge 2021
-
-- Signal Separation Evaluation Campaign (SiSEC) 
-  - Began in 2007, separating speech and music signals
-  - MusDB18 released in 2017 provided an open training dataset for deep learning-based music source separation
-  - Four output signals: Vocals, Bass, Drums, Other
-
-- 2021 Music Demixing (MDX) Challenge
-  - Direct Predecessor to SDX 2023
-  - Evaluation dataset is hidden from participants
-
----
-layout: iframe
-url: https://www.aicrowd.com/challenges/sound-demixing-challenge-2023
----
-
-# Music Demixing Challenge 2023
-
----
-
-
----
-
-# Test
-
-<iframe src="https://share.unmix.app/cUIM0xnGx9y92U5onppv/embed" width="100%" height="380" frameborder="0"></iframe>
-
----
-
-# One more time
-
-<iframe src="https://share.unmix.app/dcYwqyLY9sh3zNlU0HLN/embed" width="100%" height="380" frameborder="0"></iframe>
-
 ---
 layout: code-right
 ---
@@ -451,70 +309,87 @@ print(scores)
 </template>
 
 ---
-layout: image-right
-image: /aicrowd.png
----
 
-# Research at Audioshake
+# What is the progress on music separation research?
 
-- Deploying SOTA Music-ML __respectfully__
-- First place in __SONY 2021 MDX challenge__
-- Full __AI research life-cycle__: from research to production
-  - labeling and dataset design
-  - DL architecture design
-  - training pipelines
-  - perceptual evaluation
-  - model optimization for deployment
+<center>
+  <img width="800" src="/paperswithcode.png" alt="">
+</center>
 
-- We are hiring!
-
----
-layout: iframe
-url: https://www.youtube-nocookie.com/embed/O19u51JSoQI
----
-
-
-
----
-layout: code-right
----
-
-# Trends in Music Separation
-
-### Generative Models
-
-- `Diffwave`, `RAVE`, `HIFIGan`
-- High-quality waveforms from latent
-- 👉 Synthesizers, music enhancement
-
-### Music AI "in-the-wild"
-
-- Training and inference on live audio
-- Training on edge devices
-- 👉 denoising microphones
-- 👉 auto-eq speakers
-
-### transformers
-
-- model long-term relations
-- 👉 learn on full tracks
-
-::right::
-
-<img width="700" style="margin-top: 6em" src="/barden.png"><br/>
+1. Does **scientific research** align with **real-world applications**?
+2. Do **datasets** and **metrics** match current use cases?
 
 ---
 
-# Outlook - What to work on
+# Presumed applications of music separation
 
-- time vs tf models -> tfgridnet
-- reducing latency and complexity for live applications
-- real stereo models for music
-- undo effects
-- leaverage long-term relations
-- single model vs joint models
-- large language models
-- New momentum for learnable perceptual metrics
+- Active listening
+- Music Education
+- Remixing
+- Pre-processing for MIR Tasks
+  - musical instrument detection
+  - vocal activity detection
+  - lyric recognition
+  - fundamental frequency estimation
+
+---
+
+# Actual Commercial applications
+
+- Social Media
+- AR/VR
+- Education
+- Preprocessing for transcription and alignment
+- Karaoke
+- Gaming
+- Vocal synthesis
+- Generative AI
+- Sync/Dubbing for Film
+
+---
+
+# How good would separation need to be?
+
+<center>
+  <img width="800" src="/applications.png" alt="">
+</center>  
+
+---
+
+<iframe src="https://share.unmix.app/cUIM0xnGx9y92U5onppv/embed" width="100%" height="340" frameborder="0"></iframe>
+
+- sounds as good ground truth in some cases
+- metrics are saturating: we need new metrics
+
+---
+
+# Proposal: Clean-Source-Separation
+
+<center>
+  <img width="800" src="/cleantargetsep.png" alt="">
+</center>
+
+---
+
+# Issues with MUSDB18
+
+- too small – are we overfitting on MUSDB18?
+- yes:
+
+<center>
+  <img src="/loudness.png">
+</center>
+
+---
+
+# Stem separation != Source Separation
+
+- Stem separation is a special case of source separation
+- For many applications stems are sufficient but they are already mastered
+
+<div v-click style="margin-top:1em">
+  <iframe src="https://share.unmix.app/dcYwqyLY9sh3zNlU0HLN/embed" width="100%" height="246" frameborder="0"></iframe>
+</div>
 
 ---
 
@@ -552,33 +427,49 @@ Effects: <audio controls src="/drones.wav"></audio>
 
 ---
 
-- Soundstream
-- AudioLM
-- SingSong
+<img src="/mdx23.png" width="700">
 
+- Signal Separation Evaluation Campaign (SiSEC) 
+  - Began in 2007, separating speech and music signals
+  - MusDB18 released in 2017 provided an open training dataset for deep learning-based music source separation
+  - Four output signals: Vocals, Bass, Drums, Other
+
+- 2021 Music Demixing (MDX) Challenge
+  - Direct Predecessor to SDX 2023
+  - Evaluation dataset is hidden from participants
+
+<img src="/" width="100%">
+---
+layout: two-cols
 ---
 
-<style>
-table {
-  top: -20px;
-  font-size: 0.8em;
-}
-</style>
+# Trends/Outlook
 
-| Date  | Release                                    | Paper                                            | Code                                                                             | Trained Model                                                                                                                                                       |
-| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 03.04 | [AUDIT: Audio Editing by Following Instructions with Latent Diffusion Models](https://audit-demo.github.io/)                                                                                  | [arXiv](https://arxiv.org/abs/2304.00830)        | -                                                                                | -                                                                                                                                                                   |
-| 09.02 | ERNIE-Music: Text-to-Waveform Music Generation with Diffusion Models                                                                                                                           | [arXiv](https://arxiv.org/abs/2302.04456)        | -                                                                                | -                                                                                                                                                                   |
-| 08.02 | [Noise2Music: Text-conditioned Music Generation with Diffusion Models](https://google-research.github.io/noise2music/)                                                                         | [arXiv](https://arxiv.org/abs/2302.03917)        | -                                                                                | -                                                                                                                                                                   |
-| 04.02 | [Multi-Source Diffusion Models for Simultaneous Music Generation and Separation](https://gladia-research-group.github.io/multi-source-diffusion-models/)                                       | [arXiv](https://arxiv.org/abs/2302.02257)        | [GitHub](https://github.com/gladia-research-group/multi-source-diffusion-models) | -                                                                                                                                                                   |
-| 30.01 | [SingSong: Generating musical accompaniments from singing](https://storage.googleapis.com/sing-song/index.html)                                                                                | [arXiv](https://arxiv.org/abs/2301.12662)        | -                                                                                | -                                                                                                                                                                   |
-| 30.01 | [AudioLDM: Text-to-Audio Generation with Latent Diffusion Models](https://audioldm.github.io/)                                                                                                 | [arXiv](https://arxiv.org/abs/2301.12503)        | [GitHub](https://github.com/haoheliu/AudioLDM)                                   | [Hugging Face](https://huggingface.co/spaces/haoheliu/audioldm-text-to-audio-generation)                                                                            |
-| 30.01 | [Moûsai: Text-to-Music Generation with Long-Context Latent Diffusion](https://anonymous0.notion.site/Mo-sai-Text-to-Audio-with-Long-Context-Latent-Diffusion-b43dbc71caf94b5898f9e8de714ab5dc) | [arXiv](https://arxiv.org/abs/2301.11757)        | [GitHub](https://github.com/archinetai/audio-diffusion-pytorch)                  | -                                                                                                                                                                   |
-| 28.01 | [Noise2Music](https://noise2music.github.io/)                                                                                                                                                  | -                                                | -                                                                                | -                                                                                                                                                                   |
-| 26.01 | [MusicLM: Generating Music From Text](https://google-research.github.io/seanet/musiclm/examples/)                                                                                              | [arXiv](https://arxiv.org/abs/2301.11325)        | [GitHub (unofficial)](https://github.com/lucidrains/musiclm-pytorch)             | -                                                                                                                                                                   |
-| 18.01 | [Msanii: High Fidelity Music Synthesis on a Shoestring Budget](https://kinyugo.github.io/msanii-demo/)                                                                                         | [arXiv](https://arxiv.org/abs/2301.06468)        | [GitHub](https://github.com/Kinyugo/msanii)                                      | [Hugging Face](https://huggingface.co/spaces/kinyugo/msanii) [Colab](https://colab.research.google.com/github/Kinyugo/msanii/blob/main/notebooks/msanii_demo.ipynb) |
-| 16.01 | [ArchiSound: Audio Generation with Diffusion](https://flavioschneider.notion.site/Audio-Generation-with-Diffusion-c4f29f39048d4f03a23da13078a44cdb)                                            | [arXiv](https://arxiv.org/abs/2301.13267)        | [GitHub](https://github.com/archinetai/audio-diffusion-pytorch)                  | -                                                                                                                                                                   |
-| 05.01 | [VALL-E: Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers](https://valle-demo.github.io/)                                                                                | [arXiv](https://arxiv.org/abs/2301.02111)        | -                                                                                | -                                                                                                             
+### Generative Models
+
+- High-quality waveforms from latent
+  - `Diffwave`, `RAVE`, `HIFIGan`
+- time vs tf models :fight:
+- Separation with text prompts
+
+::right::
+
+<div style="margin-top: 5.4em">
+</div>
+
+### Music AI "in-the-wild"
+
+- Training and inference on live audio
+- Inference on edge devices
+- Real-world metrics
+- 👉 undo effects
+- 👉 real stereo models for music
+
+### transformers
+
+- model long-term relations
+- AudioLMs for larger context
+- 👉 learn on full tracks
 
 ---
 layout: two-cols
@@ -595,11 +486,34 @@ layout: two-cols
   <source src="/singsong.mp4" type="video/mp4">
 </video>
 
-Donahue, Caillon, Roberts et. al
-                                                      |
+Donahue, Caillon, Roberts et. al|
+
+---
+layout: image-right
+image: /aicrowd.png
+---
+
+# Research at Audioshake
+
+- Deploying SOTA Music-ML __respectfully__
+- First place in __SONY 2021 MDX challenge__
+- Full __AI research life-cycle__: from research to production
+  - labeling and dataset design
+  - DL architecture design
+  - training pipelines
+  - perceptual evaluation
+  - model optimization for deployment
+
+- We are hiring and looking for interns!
+
+---
+layout: iframe
+url: https://www.youtube-nocookie.com/embed/O19u51JSoQI
 ---
 
 # Conclusion
 
-- Music separation is solved for some and some applications
-
+- Deep learning just got us to the point where we can start to solve the problem
+- Music separation is solved for some kind of music and some applications
+- Music generation is still a hard problem, and requires source separation for training
+- To actually solve the task, we must define success criteria choose the appropriate metrics for the use case, and — if not available—curate suitable datasets.
