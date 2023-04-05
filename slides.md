@@ -3,7 +3,7 @@
 theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://static.wixstatic.com/media/dc75cb_c43d95dcd4c84159a814f52e85bb98e0~mv2.png/v1/fill/w_2215,h_1263,al_c,q_95/dc75cb_c43d95dcd4c84159a814f52e85bb98e0~mv2.webp
+background: /audioshake_hero.webp
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -267,13 +267,6 @@ url: https://www.youtube-nocookie.com/embed/9qSkOC7ghgI
 
 <iframe src="https://sigsep.github.io/open-unmix-js/" width="100%" height="680" frameborder="0"></iframe>
 
----
-
-# Clean-Source-Separation
-
-<center>
-  <img width="800" src="/cleantargetsep.png" alt="">
-</center>
 
 ---
 
@@ -342,6 +335,14 @@ url: https://www.youtube-nocookie.com/embed/9qSkOC7ghgI
 
 ---
 
+# Clean-Source-Separation
+
+<center>
+  <img width="800" src="/cleantargetsep.png" alt="">
+</center>
+
+---
+
 # Remaining Problems
 
 - what happens with generative models?
@@ -369,6 +370,9 @@ url: https://www.youtube-nocookie.com/embed/9qSkOC7ghgI
   - Direct Predecessor to SDX 2023
   - Evaluation dataset is hidden from participants
 
+---
+layout: iframe
+url: https://www.aicrowd.com/challenges/sound-demixing-challenge-2023
 ---
 
 # Music Demixing Challenge 2023
