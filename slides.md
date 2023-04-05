@@ -44,7 +44,7 @@ fonts:
 
 ---
 layout: image
-image: 'stones_all.jpg'
+image: stones_all.jpg
 ---
 
 # What is music separation
