@@ -98,10 +98,6 @@ fonts:
 - plot visqol and pesq scores
 
 ---
-layout: two-cols
----
-
----
 
 # When is a system solved?
 
@@ -175,6 +171,8 @@ layout: two-cols
 - what happens with generative models?
 - do we still need source separation
 - turns out yes
+
+---
 
 # Stem separation != Source Separation
 
@@ -332,11 +330,13 @@ image: demotrack/bass.jpg
 
 ---
 
-# Basic Encoder: Fixed time frequency representations
+# History of the models
 
 <center>
-  <img width="700" style="margin-top:5%; float:left" src="/STFT.svg" alt="">
+  <img width="800" src="/paperswithcode.png" alt="">
 </center>
+
+<pre><a href="https://paperswithcode.com/sota/music-source-separation-on-musdb18">5/4/2023 paperswithcode</a></pre>
 
 ---
 
@@ -365,7 +365,7 @@ image: demotrack/bass.jpg
 <img style="margin-top:2%;" width="800" src="/UMX2.svg" alt="">
 
 - MIT-licensed Pytorch implementation
-- 6.3 dB vocals SDR!
+- SOTA in 2019: 6.3 dB SDR!
 
 <h6 style="margin-top:4%;color:gray">
   F. Stöter et al, "Open-Unmix - A reference implementation for audio source separation", JOSS 2019.
@@ -514,16 +514,6 @@ layout: code-right
 
 ---
 
-# Sing Song
-
-<video controls>
-  <source src="/singsong.mp4" type="video/mp4">
-</video>
-
-Donahue, Caillon, Roberts et. al
-
----
-
 # Movie separation
 
 <video controls>
@@ -584,14 +574,27 @@ table {
 | 26.01 | [MusicLM: Generating Music From Text](https://google-research.github.io/seanet/musiclm/examples/)                                                                                              | [arXiv](https://arxiv.org/abs/2301.11325)        | [GitHub (unofficial)](https://github.com/lucidrains/musiclm-pytorch)             | -                                                                                                                                                                   |
 | 18.01 | [Msanii: High Fidelity Music Synthesis on a Shoestring Budget](https://kinyugo.github.io/msanii-demo/)                                                                                         | [arXiv](https://arxiv.org/abs/2301.06468)        | [GitHub](https://github.com/Kinyugo/msanii)                                      | [Hugging Face](https://huggingface.co/spaces/kinyugo/msanii) [Colab](https://colab.research.google.com/github/Kinyugo/msanii/blob/main/notebooks/msanii_demo.ipynb) |
 | 16.01 | [ArchiSound: Audio Generation with Diffusion](https://flavioschneider.notion.site/Audio-Generation-with-Diffusion-c4f29f39048d4f03a23da13078a44cdb)                                            | [arXiv](https://arxiv.org/abs/2301.13267)        | [GitHub](https://github.com/archinetai/audio-diffusion-pytorch)                  | -                                                                                                                                                                   |
-| 05.01 | [VALL-E: Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers](https://valle-demo.github.io/)                                                                                | [arXiv](https://arxiv.org/abs/2301.02111)        | -                                                                                | -                                                                                                                                                                   |
+| 05.01 | [VALL-E: Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers](https://valle-demo.github.io/)                                                                                | [arXiv](https://arxiv.org/abs/2301.02111)        | -                                                                                | -                                                                                                             
+
+---
+layout: two-cols
+---
+# Generative Audio models based on LLMs
+
+- Core block: Soundstream
+- AudioLM
+- SingSong
+
+::right::
+
+<video controls>
+  <source src="/singsong.mp4" type="video/mp4">
+</video>
+
+Donahue, Caillon, Roberts et. al
+                                                      |
 ---
 
 # Conclusion
 
 - Music separation is solved for some and some applications
----
-
-- Soundstream
-- AudioLM
-- SingSong

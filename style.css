@@ -44,4 +44,10 @@
     ul>li>ul>li {
         font-size: 0.8em !important;
     }
+
+    pre {
+        text-align: right;
+        font-size: 0.6em;
+        color: lightseagreen;
+    }
 }
