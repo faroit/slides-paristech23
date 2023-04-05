@@ -204,7 +204,6 @@ layout: two-cols
 
 # Evaluation
 
-
 - **SDR** (signal-to-distortion ratio) or **log-MSE** is the most common evaluation metric
 $$\text{SDR} := 10 \log_{10} \left( \frac{\| s_{\text{target}} \|^2}{ \| e_{\text{interf}} + e_{\text{noise}} + e_{\text{artif}} \|^2} \right)$$
 
@@ -316,8 +315,8 @@ print(scores)
   <img width="800" src="/paperswithcode.png" alt="">
 </center>
 
-1. Does **scientific research** align with **real-world applications**?
-2. Do **datasets** and **metrics** match current use cases?
+1. Does scientific research align with real-world applications?
+2. Do datasets and metrics match current use cases?
 
 ---
 
@@ -438,7 +437,6 @@ Effects: <audio controls src="/drones.wav"></audio>
   - Direct Predecessor to SDX 2023
   - Evaluation dataset is hidden from participants
 
-<img src="/" width="100%">
 ---
 layout: two-cols
 ---
@@ -454,8 +452,7 @@ layout: two-cols
 
 ::right::
 
-<div style="margin-top: 5.4em">
-</div>
+<div style="margin-top: 5.4em"></div>
 
 ### Music AI "in-the-wild"
 
