@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CFM Demo</title>
+        <meta name="description" content="CFM Demo">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="International Audio Laboratories Erlangen">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js" integrity="sha256-cHVO4dqZfamRhWD7s4iXyaXWVK10odD+qp4xidFzqTI=" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style media="screen">
+        body {
+          font-family: 'Fira Sans', sans-serif;
+          background-color:transparent;
+        }
+        </style>
+    </head>
+
+<body style="margin: 0; padding: 0;">
+<canvas id="myChart" width="180px" height="140px"></canvas>
+<script>
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Baseline', 'TIMIT 🇬🇧', 'THCHS10 🇨🇳', '+/- 6dB', 'Reverberation', 'Rev. Retrained'],
+            datasets: [{
+                label: 'Mean Absolute Error',
+                data: [0.27, 0.31, 0.36, 0.43, 1.63,  0.48],
+                backgroundColor: [
+                    'rgba(255, 159, 64, 1.0)',
+                    'rgba(255, 159, 64, 0.4)',
+                    'rgba(255, 159, 64, 0.4)',
+                    'rgba(255, 159, 64, 0.4)',
+                    'rgba(255, 159, 64, 0.4)',
+                    'rgba(255, 159, 64, 0.4)'
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'MAE'
+                    },  
+
+                    ticks: {
+                        beginAtZero: true,
+                    }
+                }]
+            },
+            devicePixelRatio: 2,
+            animation: false,
+            legend: {
+                display: false,
+                labels: {
+                    fontColor: 'rgb(255, 99, 132)'
+                }
+            }
+
+        }
+    });
+    
+</script>
+</body>
+</html>

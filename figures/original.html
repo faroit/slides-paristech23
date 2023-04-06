@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CFM Demo</title>
+    <meta name="description" content="CFM Demo">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="International Audio Laboratories Erlangen">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js" integrity="sha256-cHVO4dqZfamRhWD7s4iXyaXWVK10odD+qp4xidFzqTI=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style media="screen">
+    body {
+      font-family: 'Fira Sans', sans-serif;
+      background-color:transparent;
+    }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+<canvas id="myChart" width="100%" height="80px"></canvas>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['MFCC7', 'SVM', 'CRNN'],
+            datasets: [{
+                label: 'Mean Absolute Error',
+                data: [2.41, 0.63, 0.27],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(255, 159, 64, 1.0)'
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'MAE'
+                    },  
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            devicePixelRatio: 2,
+            animation: false,
+            legend: {
+                display: false,
+                labels: {
+                    fontColor: 'rgb(255, 99, 132)'
+                }
+            }
+
+        }
+    });
+    
+</script>
+</body>
+</html>
