@@ -128,7 +128,7 @@ layout: two-cols
 
 - Inverse problem: __audio separation__
 - Source __count estimation__
-- Audio __enhancement__
+- Audio __transfer/conversion__
 - Perceptual __losses__ and __evaluation__
 
 </div>
@@ -368,10 +368,12 @@ print(scores)
 
 ---
 
+# SOTA Systems Separation
+
 <iframe src="https://share.unmix.app/cUIM0xnGx9y92U5onppv/embed" width="100%" height="340" frameborder="0"></iframe>
 
-- sounds as good ground truth in some cases
-- metrics are saturating: we need new metrics
+- SDR > 15dB, Perceptual quality PEAQ of -1.5
+- metrics are saturating for some songs, we need new metrics
 
 ---
 
@@ -386,18 +388,24 @@ print(scores)
 # Issues with MUSDB18
 
 - too small – are we overfitting on MUSDB18?
-- yes:
+- doesn't generalize to out-of-dataset music
 
 <center>
   <img src="/loudness.png">
 </center>
 
+<h6 style="margin-top:4%;color:gray">
+  Chang-Bin Jeon, and Kyogu Lee, TOWARDS ROBUST MUSIC SOURCE SEPARATION ON LOUD COMMERCIAL MUSIC
+</h6>
 ---
 
 # Stem separation != Source Separation
 
-- Stem separation is a special case of source separation
-- For many applications stems are sufficient but they are already mastered
+- **Stem separation** is a special case of music source separation
+  - raw source signals are grouped and mixed into a source image/stem. 
+    - grouping is a creative process
+    - the source image is mixed to a specific number of output channels (e.g., stereo) even though the recording may have used less (e.g., vocals) or more than two microphones (e.g., drums).
+- For many applications stems are sufficient but...
 
 <div v-click style="margin-top:1em">
   <iframe src="https://share.unmix.app/dcYwqyLY9sh3zNlU0HLN/embed" width="100%" height="246" frameborder="0"></iframe>
@@ -407,13 +415,15 @@ print(scores)
 
 # Movie separation
 
-<video controls>
-  <source src="/spiderman.mp4" type="video/mp4">
-</video>
+<center>
+  <video controls width="600">
+    <source src="/spiderman.mp4" type="video/mp4">
+  </video>
+</center>
 
-Cocktail Fork Problem
-Jonathan le Roux, et al.
-
+<h6 style="margin-top:4%;color:gray">
+  Darius Petermann, Gordon Wichern, Zhong-Qiu Wang, Jonathan Le Roux - The Cocktail Fork Problem: Three-Stem Audio Separation for Real-World Soundtracks, 
+</h6>
 ---
 layout: two-cols
 ---
@@ -433,9 +443,6 @@ Music: <audio controls src="/dune.wav"></audio>
 Effects: <audio controls src="/drones.wav"></audio>
 </div>
 
-<div class="box" style="position: absolute; bottom: 0px; left: 20%">  
-  Is this solved yet? NO!
-</div>
 
 ---
 layout: two-cols
@@ -465,13 +472,13 @@ layout: two-cols
 - Training and inference on live audio
 - Inference on edge devices
 - Real-world metrics
-- 👉 real stereo models for music
+- real stereo models for music
 
 ### transformers
 
 - model long-term relations
 - AudioLMs for larger context
-- 👉 learn on full tracks
+- learn on full tracks
 
 ---
 layout: two-cols
@@ -519,9 +526,7 @@ url: https://www.youtube-nocookie.com/embed/O19u51JSoQI
 # Conclusion
 
 - Deep learning just got us to the point where we can start to solve the problem
-- Music separation sufficiently solved for some applications and sources
+- Music separation sufficiently solved for __some__ applications and some __sources__
   - ... but remains a hard problem for many other issues
-- Music (stem) generation is still a hard problem, and requires source separation for training
 - To actually solve the task, we must choose the appropriate metrics for the use case, and — if not available—curate suitable datasets.
-
----
+  - New initiatives are coming up to address this issue
