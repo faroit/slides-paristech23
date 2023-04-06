@@ -204,11 +204,10 @@ layout: two-cols
 # Evaluation
 
 - **SDR** (signal-to-distortion ratio) or **log-MSE** is the most common evaluation metric
-$$\text{SDR} := 10 \log_{10} \left( \frac{\| s_{\text{target}} \|^2}{ \| e_{\text{interf}} + e_{\text{noise}} + e_{\text{artif}} \|^2} \right)$$
-
 - Evaluation, typically between target and references
 - Perceptual metrics exist but are rarely used
-- When is it solved?
+
+- __When is it solved?__
 
 > “A system that achieves human auditory analysis performance in all listening situation” (Wang)
 
@@ -308,6 +307,21 @@ print(scores)
 
 ---
 
+<img src="/mdx23.png" width="600">
+
+- Signal Separation Evaluation Campaign (SiSEC) 
+  - Began in 2007, separating speech and music signals
+  - MusDB18 released in 2017 provided an open training dataset for deep learning-based music source separation
+  - Four output signals: Vocals, Bass, Drums, Other
+
+- Music Demixing (MDX) Challenge
+  - Direct Predecessor to SiSEC
+  - Evaluation dataset is hidden from participants
+  - 2021: 10k participants
+  - 2023: still running until end of this month!
+
+---
+
 # What is the progress on music separation research?
 
 <center>
@@ -332,6 +346,14 @@ print(scores)
 
 ---
 
+# How good would separation need to be?
+
+<center>
+  <img width="800" src="/applications.png" alt="">
+</center>  
+
+---
+
 # Actual Commercial applications
 
 - Social Media
@@ -343,14 +365,6 @@ print(scores)
 - Vocal synthesis
 - Generative AI
 - Sync/Dubbing for Film
-
----
-
-# How good would separation need to be?
-
-<center>
-  <img width="800" src="/applications.png" alt="">
-</center>  
 
 ---
 
@@ -424,19 +438,6 @@ Effects: <audio controls src="/drones.wav"></audio>
 </div>
 
 ---
-
-<img src="/mdx23.png" width="700">
-
-- Signal Separation Evaluation Campaign (SiSEC) 
-  - Began in 2007, separating speech and music signals
-  - MusDB18 released in 2017 provided an open training dataset for deep learning-based music source separation
-  - Four output signals: Vocals, Bass, Drums, Other
-
-- 2021 Music Demixing (MDX) Challenge
-  - Direct Predecessor to SDX 2023
-  - Evaluation dataset is hidden from participants
-
----
 layout: two-cols
 ---
 
@@ -447,18 +448,23 @@ layout: two-cols
 - High-quality waveforms from latent
   - `Diffwave`, `RAVE`, `HIFIGan`
 - time vs tf models :fight:
+
+### Tasks
+
 - Separation with text prompts
+- Undo effects like compression
+- SFX vs Music separation
+- Universal source separation
 
 ::right::
 
-<div style="margin-top: 5.4em"></div>
+<div style="margin-top: 3em"></div>
 
 ### Music AI "in-the-wild"
 
 - Training and inference on live audio
 - Inference on edge devices
 - Real-world metrics
-- 👉 undo effects
 - 👉 real stereo models for music
 
 ### transformers
@@ -473,8 +479,9 @@ layout: two-cols
 # Generative Audio models based on LLMs
 
 - Core block: Soundstream
-- AudioLM
-- SingSong
+- ALM: AudioLM
+
+<img src="/soundstream.png" width="400">
 
 ::right::
 
@@ -507,9 +514,14 @@ layout: iframe
 url: https://www.youtube-nocookie.com/embed/O19u51JSoQI
 ---
 
+---
+
 # Conclusion
 
 - Deep learning just got us to the point where we can start to solve the problem
-- Music separation is solved for some kind of music and some applications
-- Music generation is still a hard problem, and requires source separation for training
-- To actually solve the task, we must define success criteria choose the appropriate metrics for the use case, and — if not available—curate suitable datasets.
+- Music separation sufficiently solved for some applications and sources
+  - ... but remains a hard problem for many other issues
+- Music (stem) generation is still a hard problem, and requires source separation for training
+- To actually solve the task, we must choose the appropriate metrics for the use case, and — if not available—curate suitable datasets.
+
+---
